@@ -55,11 +55,6 @@ Your company hired **five new developers** who need access to the **development 
 ### **👨‍💻 Script: `user_management.sh`**  
 
 This script automates user creation and permission settings.  
-🔹 It creates a **developers** group.  
-🔹 It adds users to that group.  
-🔹 It sets the correct permissions on `/var/www/project`.  
-🔹 It blocks **SSH access** for two users.  
-
 ```bash
 #!/bin/bash
 
@@ -111,7 +106,7 @@ echo "🎉 User management setup complete!"
 
 After running, you can check the users:  
 ```bash
-cat /etc/passwd | grep dev
+cat /etc/passwd
 ```
 
 ---
@@ -153,6 +148,7 @@ sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
+[nginx](!nginx_setup.sh)
 
 ### **✅ Check if Nginx is Running**  
 ```bash
@@ -239,18 +235,12 @@ If `/run/sshd` is missing:
 sudo mkdir -p /run/sshd
 sudo systemctl restart sshd
 ```
-
----
-
-## **8️⃣ Screenshots (Optional)**
-If possible, **include screenshots** of commands and outputs.
-
 ---
 
 ## **9️⃣ How to Run the Scripts**
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourgithub/linux-admin-project.git
+   git clone https://github.com/Ebube101/linux-administration.git
    cd linux-admin-project
    ```
 2. **Run the user management script:**
@@ -259,14 +249,3 @@ If possible, **include screenshots** of commands and outputs.
    ```
 3. **Run other commands as needed.**
 
----
-
-## **🔟 License & Credits**
-📜 **License:** MIT  
-👤 **Author:** [Your Name]  
-📧 **Contact:** [Your Email]  
-
----
-
-🚀 **This documentation is beginner-friendly and ready to be published on GitHub!** 🚀  
-Let me know if you need changes. 😃
