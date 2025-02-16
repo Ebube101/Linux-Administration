@@ -58,33 +58,27 @@ This script automates user creation and permission settings.
 ```bash
 #!/bin/bash
 
-echo "📢 Setting up user accounts..."
-
-# Create a group for developers
+#Create a group for developers
 sudo groupadd developers
 
-# List of new users
-users=("dev1" "dev2" "dev3" "dev4" "dev5")
-
-# Loop through each user and create them
-for user in "${users[@]}"; do
-    sudo useradd -m -G developers "$user"
-    echo "$user:password123" | sudo chpasswd
-    echo "✅ Created user: $user"
+# Create user accounts and add them to the developers group
+for user in frank larry price choice dave; do
+    sudo useradd -m -G developers $user
+    echo "User $user created and added to developers group."
 done
 
-# Ensure project directory exists
-sudo mkdir -p /var/www/project
-sudo chown root:developers /var/www/project
-sudo chmod 750 /var/www/project  # Read & Execute for developers, no write
+# Set permissions for /var/www/project
+sudo mkdir /var/www/project
+sudo chown -R root:developers /var/www/project
+sudo chmod -R 750 /var/www/project  # Read & execute for group, no write permission
 
-# Restrict SSH access for dev4 and dev5
-echo "DenyUsers dev4 dev5" | sudo tee -a /etc/ssh/sshd_config
+# Restrict SSH access for frank and choice (local login only)
+echo "DenyUsers frank choice" | sudo tee -a /etc/ssh/sshd_config
 
-# Restart SSH service to apply changes
+# Restart SSH service
 sudo systemctl restart sshd
 
-echo "🎉 User management setup complete!"
+echo "User and role setup completed."
 ```
 
 ---
@@ -148,7 +142,7 @@ sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
-[nginx](!nginx_setup.sh)
+[nginx](!nginx_setup.png)
 
 ### **✅ Check if Nginx is Running**  
 ```bash
