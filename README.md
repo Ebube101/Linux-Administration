@@ -82,27 +82,11 @@ echo "User and role setup completed."
 ```
 
 ---
-
-### **How to Run the Script**
-1. Copy the script into a file:  
-   ```bash
-   nano user_management.sh
-   ```
-2. Paste the script and save (CTRL+X → Y → Enter).  
-3. Give the script **execute** permission:  
-   ```bash
-   chmod +x user_management.sh
-   ```
-4. Run the script:  
-   ```bash
-   sudo ./user_management.sh
-   ```
-
 After running, you can check the users:  
 ```bash
 cat /etc/passwd
 ```
-
+[role_managent](!https://github.com/Ebube101/Linux-Administration/blob/main/screenshots/role_management.png)
 ---
 
 ## **4️⃣ System Monitoring & Performance Analysis**  
@@ -129,7 +113,7 @@ To find out what’s happening inside your system, monitor logs:
 ```bash
 sudo tail -f /var/log/syslog
 ```
-
+[system_monitorig](!https://github.com/Ebube101/Linux-Administration/blob/main/screenshots/system_monitoring.png)
 ---
 
 ## **5️⃣ Application Management (Nginx Installation)**  
@@ -142,7 +126,7 @@ sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
-[nginx](!nginx_setup.png)
+[nginx](!https://github.com/Ebube101/Linux-Administration/blob/main/screenshots/nginx_setup.png)
 
 ### **✅ Check if Nginx is Running**  
 ```bash
@@ -167,6 +151,7 @@ sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
 sudo ufw enable
 ```
+[firewall](!https://github.com/Ebube101/Linux-Administration/blob/main/screenshots/firewall.png)
 
 ### **🌍 Check Open Ports**
 ```bash
@@ -196,7 +181,7 @@ Instead of using **passwords**, we’ll set up **SSH key authentication** for be
    ```bash
    sudo systemctl restart sshd
    ```
-
+[ssh_key_gen](!https://github.com/Ebube101/Linux-Administration/blob/main/screenshots/ssh_key.png)
 ---
 
 ## **7️⃣ Troubleshooting & Debugging**  
@@ -240,6 +225,10 @@ sudo systemctl restart sshd
 2. **Run the user management script:**
    ```bash
    sudo ./user_management.sh
+   ```
+   >> To change permission <<
+   ```bash
+   sudo chmod +x file_name
    ```
 3. **Run other commands as needed.**
 
